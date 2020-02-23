@@ -1,11 +1,30 @@
-<div class="col-sm-6">
-  <label>Account number</label>
+<div class="d-flex justify-content-center">
+  <div>
+    <input
+      type="text"
+      [formControl]="username"
+      placeholder="Enter Student id"
+    />
+    <br />
+    <input
+      type="password"
+      [formControl]="password"
+      placeholder="Enter Password"
+    />
+    <br />
+    <button (click)="onSubmit()">Submit</button>
+  </div>
   <br />
-  <input type="text" class="accNo" />
+  <div *ngIf="isValidate">
+    <p>รหัสผ่านถูกต้อง</p>
+    <label>ยอดจำนวนผู้เข้าร่วม</label>
+    {{ count }}
+  </div>
+  <div *ngIf="!errorMsg">
+    ข้อมูลผิดพลาด
+  </div>
   <br />
-  <label>Password</label>
-  <br />
-  <input type="passwords" />
-  <br />
-  <input type="submit" (click)="onSubmit()" />
+  <div *ngIf="!warningMsg">
+    รหัสนี้ได้เข้าสู่ระบบแล้ว
+  </div>
 </div>
